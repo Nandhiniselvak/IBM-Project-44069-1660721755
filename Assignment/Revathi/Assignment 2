@@ -10,11 +10,11 @@ if((a<=40)&(b>=30)):
     print("TEMP IS LOW:",a,"%")
     print("HUM IS HIGH:",b,"%")
     print("ALARM OFF")
-if((a>=40)&(b<=30)):
+if((a>40)&(b<30)):
     print("TEMP IS HIGH:",a,"%")
     print("HUM IS HIGH:",b,"%")
     print("ALARM ON")
-if((a>=40)&(b>=30)):
+if((a>40)&(b>30)):
     print("TEMP IS HIGH:",a,"%")
     print("HUM IS LOW:",b,"%")
     print("ALARM ON")
