@@ -1,10 +1,10 @@
 # IBM-Project-44069-1660721755
 IoT Based Safety Gadget for Child Safety Monitoring &amp; Notification
 #define sensorPin A3
-int Buzz= 8; // Define Bizzer pin
-int LED= 13; // Define LED pin
-int PIR= 4; // Define PIR pin
-int val= 0; // Initializing the value as zero at the beginning
+int Buzz= 8;
+int LED= 13; 
+int PIR= 4;
+int val= 0; 
   
 void setup() {
 pinMode(sensorPin,INPUT);
@@ -15,28 +15,21 @@ Serial.begin(9600);
 }
 
 void loop() {
-  // Get a reading from the temperature sensor:
   int reading = analogRead(sensorPin);
-
-  // Convert the reading into voltage:
   float voltage = reading * (5000 / 1024.0);
-
-  // Convert the voltage into the temperature in Celsius:
   float temperature = (voltage - 500) / 10;
-
-  // Print the temperature in the Serial Monitor:
   Serial.print(temperature);
-  Serial.print(" \xC2\xB0"); // shows degree symbol
+  Serial.print(" \xC2\xB0"); 
   Serial.println("C");
 
-  delay(1000); // wait a second between readings
-  if(temperature>40)
+  delay(1000); 
+  if(temperature>60)
   {
-  digitalWrite(LED, HIGH); // Turn LED ON
-  digitalWrite(Buzz, HIGH); // Turn Buzzer ON
-  Serial.println("Temperature is High"); // Print this text in Serial Monitor
+  digitalWrite(LED, HIGH);
+  digitalWrite(Buzz, HIGH); 
+  Serial.println("Temperature is High");
 }
-if(temperature<40 && temperature>30)
+if(temperature<60 && temperature>30)
 {
   digitalWrite(LED, LOW);
   digitalWrite(Buzz, LOW);
@@ -50,11 +43,11 @@ else
   Serial.println("Temperature is low");
 }
 
-val = digitalRead(PIR); // The value read from PIR pin 4 will be assigned to 'val'
+val = digitalRead(PIR); 
 if(val == HIGH){
-  digitalWrite(LED, HIGH); // Turn LED ON
-  digitalWrite(Buzz, HIGH); // Turn Buzzer ON
-  Serial.println("Movement Detected"); // Print this text in Serial Monitor
+  digitalWrite(LED, HIGH);
+  digitalWrite(Buzz, HIGH); 
+  Serial.println("Movement Detected");
 }
 else 
 {
